@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
+  labels:
+    app: demo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        image: k8sdemosalman.azurecr.io/backend-js:v1
+        ports:
+          - containerPort: 8080
+            name: http
+          - containerPort: 8443
+            name: https            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service
+spec:
+  selector:
+    app: demo-app
+  ports:
+  - name: http-port
+    protocol: TCP
+    port: 80
+    targetPort: http
+  - name: https-port
+    protocol: TCP
+    port: 443
+    targetPort: https
