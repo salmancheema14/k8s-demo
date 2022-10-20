@@ -9,7 +9,7 @@ This repo has instructions to prepare your machine and create appropriate Azure 
 2. Clone this repository on your machine.
 3. Install Azure CLI on your machine, if you do not already have it. [Install Link](https://learn.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-9.0.1)
 4. Modify the *<github_repo_path>\src\azure scripts\1-create-resources.ps1* script to provide unique names for resource group, container registry, and AKS cluster resources. 
-5. Open a windows powershell window in **Administrator** mode, and execute the *<github_rep_path>\src\azure scripts\1-create-resources.ps1* script. *This script can run for 15-20 minutes*. 
+5. Open a windows powershell window in **Administrator** mode, and execute the *<github_repo_path>\src\azure scripts\1-create-resources.ps1* script. *This script can run for 15-20 minutes*. 
 6.  While running the script, powershell may complain about the script being unsigned. You can get around this by executing `Set-ExecutionPolicy -ExecutionPolicy unrestricted` in the powershell window. Re-run the script after changing the execution policy.
 7. Once the script completes, you should be able to view the following resources under your chosen resource group in Azure Portal: *Azure Container Registry*, *Azure Kubernetes Service Cluster(with 2 Nodes)*
 8. The script also installs `kubectl` on your windows machine, under `C:\Users\<username>\.azure-kubectl\`. *You will need to manually add this folder to the system PATH environment variable*. After changing the path variable, you will need to close and re-open any terminal windows, for the change to take effect.
@@ -85,6 +85,8 @@ You can build a docker image for this application by executing
 ```
 docker build -t demo-app .
 ```
+***NOTE: The `docker build` command assumes that you are in a directory with a `Dockerfile`. To execute this command, navigate to an appropriate directory.***   
+
 This builds the image and adds it to the local image store in your VM. You can see a list of available docker images by running `docker images`.    
 
 You can run the docker image locally by executing 
