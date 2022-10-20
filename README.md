@@ -1,8 +1,11 @@
 # k8s-demo
 
+This repo has instructions to prepare your machine and create appropriate Azure resources, for the tutorial session on docker and Kubernetes.
+
 ## Pre-Requisites
+
 ### Create Azure resources and install kubectl on your dev-box 
-1. Create a `.ssh\` folder on your Windows machine under `c:\Users\<username>\`. This is necessary for AKS cluster deployments (with SSH keys). There appears to be an open issue where including a `--generate-ssh-keys` parameter via Azure CLI always throws an error. 😬
+1. Create a `.ssh\` folder on your Windows machine under `c:\Users\<username>\`. This is necessary for AKS cluster deployments (with SSH keys). There appears to be an open issue where including a `--generate-ssh-keys` parameter via Azure CLI always throws an error.
 2. Clone this repository on your machine.
 3. Modify the *<github_repo_path>\src\azure scripts\1-create-resources.ps1* script to provide unique names for resource group, container registry, and AKS cluster resources. 
 4. Open a windows powershell window in **Administrator** mode, and execute the *<github_rep_path>\src\azure scripts\1-create-resources.ps1* script. *This script can run for 15-20 minutes*. 
