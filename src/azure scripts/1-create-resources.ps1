@@ -1,11 +1,16 @@
-﻿$subscription="0d13d072-64ed-4c78-b54a-31a7fab3ad01"
+﻿$tenantId="72f988bf-86f1-41af-91ab-2d7cd011db47"
+$cloudName="AzureCloud"
+$subscription="0d13d072-64ed-4c78-b54a-31a7fab3ad01"
 $resourceGroup="<your_name>-k8s"
 $resourceGroupLocation="eastus"
 $aksClusterName="k8s<your_name>"
 $acrName="k8sdemo<your_name>"
 
-az login
+az login --tenant $tenantId
+az cloud set --name $cloudName
 az account set --subscription $subscription
+
+Write-Host "Successfully logged into $($cloudName), AAD tenant Id = '$($tenantId)', Current Subscription = '$($subscription)'"
 
 Write-Host "Deploying Resource Group: $($resourceGroup)"
 az group create --name $resourceGroup --location $resourceGroupLocation
