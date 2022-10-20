@@ -7,7 +7,7 @@ This repo has instructions to prepare your machine and create appropriate Azure 
 ### Create Azure resources and install kubectl on your dev-box 
 1. Create a `.ssh\` folder on your Windows machine under `c:\Users\<username>\`. This is necessary for AKS cluster deployments (with SSH keys). There appears to be an open issue where including a `--generate-ssh-keys` parameter via Azure CLI always throws an error.
 2. Clone this repository on your machine.
-3. Install Azure CLI on your machine, if you do not already have it. [Install Link] (https://learn.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-9.0.1)
+3. Install Azure CLI on your machine, if you do not already have it. [Install Link](https://learn.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-9.0.1)
 4. Modify the *<github_repo_path>\src\azure scripts\1-create-resources.ps1* script to provide unique names for resource group, container registry, and AKS cluster resources. 
 5. Open a windows powershell window in **Administrator** mode, and execute the *<github_rep_path>\src\azure scripts\1-create-resources.ps1* script. *This script can run for 15-20 minutes*. 
 6.  While running the script, powershell may complain about the script being unsigned. You can get around this by executing `Set-ExecutionPolicy -ExecutionPolicy unrestricted` in the powershell window. Re-run the script after changing the execution policy.
