@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: k8sdemosalman.azurecr.io/backend-js:v1
+        image: k8sdemosalman.azurecr.io/demo-app:v1
         ports:
           - containerPort: 8080
             name: http
